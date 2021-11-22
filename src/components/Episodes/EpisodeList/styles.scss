@@ -1,0 +1,11 @@
+.episodes {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    .epilink {
+        color: white;
+        &:visited {
+            color: white;
+        }
+    }
+}

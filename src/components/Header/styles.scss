@@ -1,0 +1,19 @@
+header {
+	// width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	padding-right: 50px;
+	a {
+		margin-right: 30px;
+		font-weight: bold;
+		color: black;
+		&:visited {
+			color: black;
+		}
+		&:hover {
+			color: red;
+		}
+	}
+}
