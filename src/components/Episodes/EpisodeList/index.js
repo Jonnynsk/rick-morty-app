@@ -4,11 +4,10 @@ import { Episode } from '../Episode'
 
 import './styles.scss'
 
-export const EpisodeList = ({results}) => {
-    console.log(results)
-    return (
-        <div className='episodes'>
-		
-		</div>
-    )
+export const EpisodeList = ({ results }) => {
+	let display
+	{
+		results ? (display = results.map(x => <Episode {...x} />)) : 'NOOO'
+	}
+	return <>{display}</>
 }
