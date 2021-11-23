@@ -2,7 +2,7 @@ import React from 'react'
 
 import './styles.scss'
 
-export const Character = ({ name, status, species, image, location }) => {
+export const Character = ({ name, status, species, image, location, id }) => {
 	return (
 		<div className='character'>
 			<div>
