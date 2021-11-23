@@ -9,8 +9,8 @@ export const LocationList = ({ results }) => {
 	let display
 	{
 		results
-			? (display = results.map(loca => (
-					<div key={loca.id}>
+			? (display = results.map((loca, index) => (
+					<div key={index}>
 						<NavLink className='localink' to={`/locations/${loca.id}`}>
 							<Location {...loca} />
 						</NavLink>

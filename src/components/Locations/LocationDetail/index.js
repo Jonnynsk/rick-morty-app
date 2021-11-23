@@ -30,7 +30,7 @@ export const LocationDetail = () => {
 		<div>
 			<h1 className='title'>Location : "{name}"</h1>
 			<h2 className='title'>Type : "{type}"</h2>
-			<h2 className='title'>Dimension : "{dimension}"</h2>
+			<h2 className='title'>Dimension : "{dimension === '' ? 'Unknown' : dimension}"</h2>
 			<div>
 				<h2 className='title'>{residents < 1 ? 'No residents on this location' : 'Residents on this location :' }</h2>
 				{residents ? (
