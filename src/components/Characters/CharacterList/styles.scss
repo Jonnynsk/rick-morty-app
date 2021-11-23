@@ -1,0 +1,11 @@
+.characters {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    .link {
+        color: white;
+        &:visited {
+            color: white;
+        }
+    }
+}

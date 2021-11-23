@@ -7,7 +7,13 @@ import './styles.scss'
 export const EpisodeList = ({ results }) => {
 	let display
 	{
-		results ? (display = results.map(x => <Episode {...x} />)) : 'NOOO'
+		results
+			? (display = results.map(epi => (
+					<div key={epi.id}>
+						<Episode {...epi} />
+					</div>
+			  )))
+			: (display = 'No Episodes Found :/')
 	}
-	return <>{display}</>
+	return <div className='episodes'>{display}</div>
 }

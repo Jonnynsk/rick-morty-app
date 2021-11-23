@@ -1,0 +1,13 @@
+.character {
+	width: 300px;
+	height: 220px;
+	border: 2px solid blue;
+	text-align: center;
+	padding-top: 20px;
+    margin: 20px;
+    .image {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+    }
+}
