@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import { EpisodeList } from '../components/Episodes/EpisodeList'
 
 export const Episodes = () => {
@@ -10,7 +11,7 @@ export const Episodes = () => {
 
 	useEffect(() => {
 		;(async function () {
-			let data = await fetch(api).then(res => res.json())
+			const data = await fetch(api).then(res => res.json())
 			setFetchEpisodes(data)
 		})()
 	}, [api])

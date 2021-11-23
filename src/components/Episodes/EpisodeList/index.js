@@ -1,8 +1,8 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Episode } from '../Episode'
 
 import './styles.scss'
+
+import { Episode } from '../Episode'
 
 export const EpisodeList = ({ results }) => {
 	let display

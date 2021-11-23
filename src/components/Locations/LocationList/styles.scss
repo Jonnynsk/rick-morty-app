@@ -1,0 +1,11 @@
+.locations {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    .localink {
+        color: white;
+        &:visited {
+            color: white;
+        }
+    }
+}
