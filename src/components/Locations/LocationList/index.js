@@ -16,7 +16,9 @@ export const LocationList = ({ results }) => {
 						</NavLink>
 					</div>
 			  )))
-			: (display = 'No Locations Found :/')
+			: (display = <div className='title'>
+			<h2>No Locations Found</h2>
+		</div>)
 	}
 	return <div className='locations'>{display}</div>
 }

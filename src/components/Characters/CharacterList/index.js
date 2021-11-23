@@ -16,7 +16,9 @@ export const CharacterList = ({ results }) => {
 						</NavLink>
 					</div>
 			  )))
-			: (display = 'No Characters Found :/')
+			: (display =<div className='title'>
+			<h2>No Characters Found</h2>
+		</div>)
 	}
 	return <div className='characters'>{display}</div>
 }

@@ -16,7 +16,11 @@ export const EpisodeList = ({ results }) => {
 						</NavLink>
 					</div>
 			  )))
-			: (display = 'No Episodes Found :/')
+			: (display = (
+					<div className='title'>
+						<h2>No Episodes Found</h2>
+					</div>
+			  ))
 	}
 	return <div className='episodes'>{display}</div>
 }
