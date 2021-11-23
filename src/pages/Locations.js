@@ -12,7 +12,7 @@ export const Locations = () => {
 
 	useEffect(() => {
 		;(async function () {
-			let data = await fetch(api).then(res => res.json())
+			const data = await fetch(api).then(res => res.json())
 			setFetchLocations(data)
 		})()
 	}, [api])

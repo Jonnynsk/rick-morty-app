@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import './styles.scss'
 
@@ -10,7 +11,9 @@ export const CharacterList = ({ results }) => {
 		results
 			? (display = results.map(char => (
 					<div key={char.id}>
-						<Character {...char} />
+						<NavLink className='link' to={`/characters/${char.id}`}>
+							<Character {...char} />
+						</NavLink>
 					</div>
 			  )))
 			: (display = 'No Characters Found :/')

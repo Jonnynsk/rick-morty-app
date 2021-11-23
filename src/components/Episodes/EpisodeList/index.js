@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import './styles.scss'
 
@@ -10,7 +11,9 @@ export const EpisodeList = ({ results }) => {
 		results
 			? (display = results.map(epi => (
 					<div key={epi.id}>
-						<Episode {...epi} />
+						<NavLink className='epilink' to={`/${epi.id}`}>
+							<Episode {...epi} />
+						</NavLink>
 					</div>
 			  )))
 			: (display = 'No Episodes Found :/')

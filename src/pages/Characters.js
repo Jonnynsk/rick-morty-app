@@ -12,7 +12,7 @@ export const Characters = () => {
 
 	useEffect(() => {
 		;(async function () {
-			let data = await fetch(api).then(res => res.json())
+			const data = await fetch(api).then(res => res.json())
 			setFetchCharacters(data)
 		})()
 	}, [api])
