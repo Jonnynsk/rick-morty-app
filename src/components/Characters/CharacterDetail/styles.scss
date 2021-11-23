@@ -5,6 +5,8 @@
         .info {
             width: 424px;
             border: 2px solid blue;
+            box-shadow: 3px 2px 4px 2px blue;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;

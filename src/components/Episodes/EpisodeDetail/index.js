@@ -6,7 +6,7 @@ import './styles.scss'
 import { CharacterList } from '../../Characters/CharacterList'
 
 export const EpisodeDetail = () => {
-	const {id} = useParams()
+	const { id } = useParams()
 	const [info, setInfo] = useState([])
 	const [results, setResults] = useState([])
 	const { name, air_date, episode } = info
@@ -17,7 +17,7 @@ export const EpisodeDetail = () => {
 			setInfo(data)
 
 			let chars = await Promise.all(
-				data.characters.map(async (char) => {
+				data.characters.map(async char => {
 					const res = await fetch(char)
 					return await res.json()
 				})
@@ -27,8 +27,14 @@ export const EpisodeDetail = () => {
 	}, [api])
 	return (
 		<div>
-			{name}
-			<CharacterList results={results} />
+			<div>
+			<h1 className='title'>Episode {episode} : "{name}"</h1>
+			<h2 className='title'>Original air date : {air_date}</h2>
+			</div>
+			<div>
+				<h2 className='title'>Characters : </h2>
+				<CharacterList results={results} />
+			</div>
 		</div>
 	)
 }
