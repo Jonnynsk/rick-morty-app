@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { LocationList } from '../components/Locations/LocationList'
+import { Search } from '../components/Search'
 
 export const Locations = () => {
 	const [pageNumber, setPageNumber] = useState(1)
@@ -11,12 +12,13 @@ export const Locations = () => {
 
 	useEffect(() => {
 		;(async function () {
-			const data = await fetch(api).then(res => res.json())
+			let data = await fetch(api).then(res => res.json())
 			setFetchLocations(data)
 		})()
 	}, [api])
 	return (
 		<div>
+			<Search setSearch={setSearch} placeholder='Search location...' />
 			<LocationList results={results} />
 		</div>
 	)

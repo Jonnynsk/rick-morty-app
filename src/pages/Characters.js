@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { CharacterList } from '../components/Characters/CharacterList'
+import { Search } from '../components/Search'
 
 export const Characters = () => {
 	const [pageNumber, setPageNumber] = useState(1)
@@ -11,12 +12,13 @@ export const Characters = () => {
 
 	useEffect(() => {
 		;(async function () {
-			const data = await fetch(api).then(res => res.json())
+			let data = await fetch(api).then(res => res.json())
 			setFetchCharacters(data)
 		})()
 	}, [api])
 	return (
 		<div>
+			<Search setSearch={setSearch} placeholder='Search character...' />
 			<CharacterList results={results} />
 		</div>
 	)
