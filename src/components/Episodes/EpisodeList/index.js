@@ -22,5 +22,10 @@ export const EpisodeList = ({ results }) => {
 					</div>
 			  ))
 	}
-	return <div className='episodes'>{display}</div>
+
+	return (
+		<div>
+			<div className='episodes'>{display}</div>
+		</div>
+	)
 }
