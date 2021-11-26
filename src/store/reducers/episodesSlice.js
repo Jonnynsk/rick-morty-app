@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { fetchAllEpisodes } from './ActionCreators'
+import { getAllEpisodes } from './ActionCreators'
 
 const initialState = {
 	episodes: [],
@@ -13,15 +13,15 @@ export const episodesSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[fetchAllEpisodes.fulfilled.type]: (state, action) => {
+		[getAllEpisodes.fulfilled.type]: (state, action) => {
 			state.isLoading = false
 			state.error = ''
 			state.episodes = action.payload
 		},
-		[fetchAllEpisodes.pending.type]: state => {
+		[getAllEpisodes.pending.type]: state => {
 			state.isLoading = true
 		},
-		[fetchAllEpisodes.rejected.type]: (state, action) => {
+		[getAllEpisodes.rejected.type]: (state, action) => {
 			state.isLoading = false
 			state.error = action.payload
 		},

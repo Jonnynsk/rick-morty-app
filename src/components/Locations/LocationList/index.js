@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import './styles.scss'
 
 import { Location } from '../Location'
+import { Loading } from './../../Loading/index';
 
 export const LocationList = ({ results }) => {
 	let display
@@ -17,7 +18,7 @@ export const LocationList = ({ results }) => {
 					</div>
 			  )))
 			: (display = <div className='title'>
-			<h2>No Locations Found</h2>
+			<h2><Loading /></h2>
 		</div>)
 	}
 	return <div className='locations'>{display}</div>

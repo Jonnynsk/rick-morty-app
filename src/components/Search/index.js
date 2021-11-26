@@ -4,12 +4,12 @@ import './styles.scss'
 
 export const Search = ({ setSearch, placeholder }) => {
 	return (
-		<form>
+		<div className='form'>
 			<input
 				onChange={(e) => setSearch(e.target.value)}
 				placeholder={placeholder}
 				type='text'
 			/>
-		</form>
+		</div>
 	)
 }

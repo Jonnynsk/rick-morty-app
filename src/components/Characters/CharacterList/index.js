@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import './styles.scss'
 
 import { Character } from '../Character'
+import { Loading } from './../../Loading/index';
 
 export const CharacterList = ({ results }) => {
 	let display
@@ -16,9 +17,12 @@ export const CharacterList = ({ results }) => {
 						</NavLink>
 					</div>
 			  )))
-			: (display =<div className='title'>
-			<h2>No Characters Found</h2>
-		</div>)
+			: (display = (
+					<div className='title'>
+						<h2><Loading /></h2>
+					</div>
+			  ))
 	}
+
 	return <div className='characters'>{display}</div>
 }

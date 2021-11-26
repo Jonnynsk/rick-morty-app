@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import './styles.scss'
 
 import { Episode } from '../Episode'
+import { Loading } from './../../Loading/index';
 
 export const EpisodeList = ({ results }) => {
 	let display
@@ -18,7 +19,7 @@ export const EpisodeList = ({ results }) => {
 			  )))
 			: (display = (
 					<div className='title'>
-						<h2>No Episodes Found</h2>
+						<h2><Loading /></h2>
 					</div>
 			  ))
 	}

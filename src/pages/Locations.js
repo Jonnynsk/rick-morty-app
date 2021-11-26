@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { LocationList } from '../components/Locations/LocationList'
 import { Search } from '../components/Search'
+import { getAllLocations } from '../store/reducers/ActionCreators'
 
 export const Locations = () => {
 	const [pageNumber, setPageNumber] = useState(1)
 	const [fetchLocations, setFetchLocations] = useState([])
 	const { info, results } = fetchLocations
 	const [search, setSearch] = useState('')
-	const api = `https://rickandmortyapi.com/api/location/?page=${pageNumber}&name=${search}`
 
+	const { locations } = useSelector(state => state.locations)
+	const dispatch = useDispatch()
 	useEffect(() => {
-		;(async function () {
-			const data = await fetch(api).then(res => res.json())
-			setFetchLocations(data)
-		})()
-	}, [api])
+		dispatch(getAllLocations({ search, pageNumber }))
+	}, [search])
+	useEffect(() => {
+		setFetchLocations(locations)
+	})
 	return (
 		<div>
 			<Search setSearch={setSearch} placeholder='Search location...' />
