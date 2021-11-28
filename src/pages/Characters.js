@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { CharacterList } from '../components/Characters/CharacterList'
 import { Search } from '../components/Search'
+import { FilterGender } from '../components/Sort'
 import { getAllCharacters } from '../store/reducers/ActionCreators'
 
 export const Characters = () => {
@@ -10,18 +11,20 @@ export const Characters = () => {
 	const [fetchCharacters, setFetchCharacters] = useState([])
 	const { info, results } = fetchCharacters
 	const [search, setSearch] = useState('')
-
 	const { characters } = useSelector(state => state.characters)
 	const dispatch = useDispatch()
+
 	useEffect(() => {
 		dispatch(getAllCharacters({ search, pageNumber }))
 	}, [search])
 	useEffect(() => {
 		setFetchCharacters(characters)
 	})
+
 	return (
 		<div>
 			<Search setSearch={setSearch} placeholder='Search character...' />
+			{/* <FilterGender /> */}
 			<CharacterList results={results} />
 		</div>
 	)

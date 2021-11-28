@@ -1,11 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { getAllLocations, getSingleLocation } from './ActionCreators'
+import {
+	getAllLocations,
+	getSingleLocation,
+	locationsInfinite,
+} from './ActionCreators'
 
 const initialState = {
 	locations: [],
 	isLoading: false,
 	error: '',
+	loadMore: true,
 }
 
 export const locationsSlice = createSlice({
@@ -17,7 +22,6 @@ export const locationsSlice = createSlice({
 			state.isLoading = false
 			state.error = ''
 			state.locations = action.payload
-			// state.locations = state.locations.concat(action.payload)
 		},
 		[getAllLocations.pending.type]: state => {
 			state.isLoading = true
@@ -35,6 +39,19 @@ export const locationsSlice = createSlice({
 			state.isLoading = true
 		},
 		[getSingleLocation.rejected.type]: (state, action) => {
+			state.isLoading = false
+			state.error = action.payload
+		},
+		[locationsInfinite.fulfilled.type]: (state, action) => {
+			state.isLoading = false
+			state.error = ''
+			// не понимаю, как склеивать. пишет, что state.locations.concat не является функцией
+			// state.locations = state.locations.concat(action.payload)
+		},
+		[locationsInfinite.pending.type]: state => {
+			state.isLoading = true
+		},
+		[locationsInfinite.rejected.type]: (state, action) => {
 			state.isLoading = false
 			state.error = action.payload
 		},

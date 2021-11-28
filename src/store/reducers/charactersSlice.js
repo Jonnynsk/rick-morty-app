@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { getAllCharacters, getSingleCharacter } from './ActionCreators'
+import {
+	getAllCharacters,
+	getSingleCharacter,
+	sortCharacters,
+} from './ActionCreators'
 
 const initialState = {
 	characters: [],
@@ -34,6 +38,18 @@ export const charactersSlice = createSlice({
 			state.isLoading = true
 		},
 		[getSingleCharacter.rejected.type]: (state, action) => {
+			state.isLoading = false
+			state.error = action.payload
+		},
+		[sortCharacters.fulfilled.type]: (state, action) => {
+			state.isLoading = false
+			state.error = ''
+			state.characters = action.payload
+		},
+		[sortCharacters.pending.type]: state => {
+			state.isLoading = true
+		},
+		[sortCharacters.rejected.type]: (state, action) => {
 			state.isLoading = false
 			state.error = action.payload
 		},

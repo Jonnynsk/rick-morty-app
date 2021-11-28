@@ -31,17 +31,17 @@ export const getSingleEpisode = createAsyncThunk(
 	}
 )
 // sort episodes
-export const sortEpisodes = createAsyncThunk(
-	'episode/sortEpisodes',
-	async ({ name }, { rejectWithValue }) => {
-		try {
-			const response = await instance.get(`episode/?name=${name}`)
-			return response.data
-		} catch (e) {
-			return rejectWithValue('Failed to sort episodes')
-		}
-	}
-)
+// export const sortEpisodes = createAsyncThunk(
+// 	'episode/sortEpisodes',
+// 	async ({ name }, { rejectWithValue }) => {
+// 		try {
+// 			const response = await instance.get(`episode/?name=${name}`)
+// 			return response.data
+// 		} catch (e) {
+// 			return rejectWithValue('Failed to sort episodes')
+// 		}
+// 	}
+// )
 
 // Locations
 
@@ -71,6 +71,14 @@ export const getSingleLocation = createAsyncThunk(
 		}
 	}
 )
+// locations infinite scroll
+export const locationsInfinite = createAsyncThunk(
+	'location/locationsInfinite',
+	async () => {
+		const response = await instance.get(`location/`)
+		return response.data
+	}
+)
 
 // Characters
 
@@ -97,6 +105,18 @@ export const getSingleCharacter = createAsyncThunk(
 			return response.data
 		} catch (e) {
 			return rejectWithValue('Failed to load character')
+		}
+	}
+)
+// sort characters
+export const sortCharacters = createAsyncThunk(
+	'character/sortCharacters',
+	async ({ gender }, { rejectWithValue }) => {
+		try {
+			const response = await instance.get(`episode/?gender=${gender}`)
+			return response.data
+		} catch (e) {
+			return rejectWithValue('Failed to sort characters')
 		}
 	}
 )
