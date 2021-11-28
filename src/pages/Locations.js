@@ -27,7 +27,7 @@ export const Locations = () => {
 	return (
 		<div>
 			<Search setSearch={setSearch} placeholder='Search location...' />
-			<button onClick={loadMore}>Next</button>
+			{/* <button onClick={loadMore}>Next</button> */}
 			<LocationList results={results} />
 		</div>
 	)

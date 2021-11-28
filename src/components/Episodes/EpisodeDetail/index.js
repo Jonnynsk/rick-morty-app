@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
 
 import './styles.scss'
 
 import { CharacterList } from '../../Characters/CharacterList'
 import { Loading } from '../../Loading'
-import { useDispatch, useSelector } from 'react-redux'
 import { getSingleEpisode } from '../../../store/reducers/ActionCreators'
 
 export const EpisodeDetail = () => {
@@ -14,7 +14,7 @@ export const EpisodeDetail = () => {
 	const [results, setResults] = useState([])
 	const { name, air_date, episode, characters } = info
 	const api = `https://rickandmortyapi.com/api/episode/${id}`
-	// const { episodes} = useSelector(state => state.episodes)
+	// const { episodes, isLoading, error } = useSelector(state => state.episodes)
 	// const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -40,6 +40,19 @@ export const EpisodeDetail = () => {
 	// useEffect(() => {
 	// 	setInfo(episodes)
 	// })
+
+	// if (isLoading)
+	// 	return (
+	// 		<div className='load'>
+	// 			<Loading />
+	// 		</div>
+	// 	)
+	// if (error)
+	// 	return (
+	// 		<div className='title'>
+	// 			<h2>{error}</h2>
+	// 		</div>
+	// 	)
 
 	return (
 		<div>

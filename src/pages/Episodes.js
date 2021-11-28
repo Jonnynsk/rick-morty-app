@@ -13,22 +13,30 @@ export const Episodes = () => {
 
 	const { episodes, isLoading, error } = useSelector(state => state.episodes)
 	const dispatch = useDispatch()
+
 	useEffect(() => {
-		dispatch(getAllEpisodes({search, pageNumber}))
+		dispatch(getAllEpisodes({ search, pageNumber }))
 	}, [search])
 	useEffect(() => {
 		setFetchEpisodes(episodes)
 	})
+
+	// если поставить isLoading, то поиск сходит с ума (перезагружает страницу после каждого символа)
+	// а если поставить error, то поиск совсем исчезает, после несовпадения
+
 	// if (isLoading)
 	// 	return (
 	// 		<div className='load'>
 	// 			<Loading />
 	// 		</div>
 	// 	)
-		// if(error)
-		// return (
-		// 	<div className='title'><h2>{error}</h2></div>
-		// )
+	// if (error)
+	// 	return (
+	// 		<div className='title'>
+	// 			<h2>{error}</h2>
+	// 		</div>
+	// 	)
+
 	return (
 		<div>
 			<Search setSearch={setSearch} placeholder='Search episode...' />
