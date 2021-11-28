@@ -15,14 +15,21 @@ export const Locations = () => {
 	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(getAllLocations({ search, pageNumber }))
-	}, [search])
+	}, [search, pageNumber])
 	useEffect(() => {
 		setFetchLocations(locations)
 	})
+
+	const loadMore = () => {
+		setPageNumber(prevPage => prevPage + 1)
+	}
+
 	return (
 		<div>
 			<Search setSearch={setSearch} placeholder='Search location...' />
+			<button onClick={loadMore}>Next</button>
 			<LocationList results={results} />
 		</div>
 	)
 }
+
